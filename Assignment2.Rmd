@@ -1,0 +1,63 @@
+---
+title: "Assignment Template"
+author: "202075757"
+date: "October 27 2023"
+output: html_document
+---
+
+```{r setup, include=FALSE} 
+# this chunk contains code that sets global options for the entire .Rmd. 
+# we use include=FALSE to suppress it from the top of the document, but it will still appear in the appendix. 
+
+knitr::opts_chunk$set(echo = FALSE) # actually set the global chunk options. 
+# we set echo=FALSE to suppress code such that it by default does not appear throughout the document. 
+# note: this is different from .Rmd default
+```
+
+###Exercise 1
+
+My public repository can be found here https://github.com/Wendy1397/MY472_assignment2
+
+
+###Exercise2
+
+Here I would answer the questions using the visualization I generated.
+
+```{r}
+library("tidyverse")
+library("lubridate")
+library("scales")
+library("gridExtra")
+```
+
+```{r ex2}
+
+```
+
+###Exercise 3
+##Part1
+```{r echo_example, echo=TRUE}
+
+print("This code chunk is visible in this section.")
+```
+
+```{r ex2 part1}
+print ("This is code!")
+
+```
+
+
+##Part2
+
+
+```{r ex3 part2}
+
+```
+
+
+## Appendix: All code in this assignment
+
+```{r ref.label=knitr::all_labels(), echo=TRUE, eval=FALSE} 
+# this chunk generates the complete code appendix. 
+# eval=FALSE tells R not to run (``evaluate'') the code here (it was already run before).
+```
