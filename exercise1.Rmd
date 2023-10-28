@@ -1,0 +1,49 @@
+---
+title: "Assignment 2 Exercise 1"
+author: "202075757"
+date: "Octover 27 2023"
+output: html_document
+---
+
+```{r setup, include=FALSE} 
+# this chunk contains code that sets global options for the entire .Rmd. 
+# we use include=FALSE to suppress it from the top of the document, but it will still appear in the appendix. 
+
+knitr::opts_chunk$set(echo = FALSE) # actually set the global chunk options. 
+# we set echo=FALSE to suppress code such that it by default does not appear throughout the document. 
+# note: this is different from .Rmd default
+```
+
+```{r}
+library(dplyr)
+# Define a function named 'calculate_area' that takes a single argument 'data'
+calculate_area <- function(data) {
+  # Check if 'data' is a data frame
+  if (!is.data.frame(data)) {
+    stop("Input data must be a data frame.")
+  }
+  
+  # Use mutate to calculate petal area and add it as a new column
+  transformed_data <- data %>%
+    mutate(Petal_Area = Petal.Length * Petal.Width)
+  
+  return(transformed_data)
+}
+
+# Load the built-in 'iris' dataset
+data(iris)
+
+# Use the function to calculate petal area
+iris_with_petal_area <- calculate_area(iris)
+
+# Print the transformed data
+print(iris_with_petal_area)
+```
+
+
+## Appendix: All code in this assignment
+
+```{r ref.label=knitr::all_labels(), echo=TRUE, eval=FALSE} 
+# this chunk generates the complete code appendix. 
+# eval=FALSE tells R not to run (``evaluate'') the code here (it was already run before).
+```
