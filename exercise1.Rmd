@@ -16,30 +16,69 @@ knitr::opts_chunk$set(echo = FALSE) # actually set the global chunk options.
 
 ```{r}
 library(dplyr)
-# Define a function named 'calculate_area' that takes a single argument 'data'
-calculate_area <- function(data) {
+# Define a function named 'calculate_area' that takes 2 arguments 'data' and 'transformation_type'
+calculate_area <- function(data, transformation_type) {
   # Check if 'data' is a data frame
   if (!is.data.frame(data)) {
     stop("Input data must be a data frame.")
   }
   
+ # Use a conditional statement to perform different data transformations
+  if (transformation_type == "petal_area") {
   # Use mutate to calculate petal area and add it as a new column
   transformed_data <- data %>%
     mutate(Petal_Area = Petal.Length * Petal.Width)
+  } else if (transformation_type == "sepal_area") {
+    transformed_data <- data %>%
+      mutate(Sepal_Area = Sepal.Length * Sepal.Width)
+  } else {
+    stop("Invalid transformation_type. Use 'petal_area' or 'sepal_area'.")
+  }
   
   return(transformed_data)
-}
+}  
+
+library(dplyr)
+# Define a function named 'calculate_area' that takes 2 arguments 'data' and 'transformation_type'
+calculate_area <- function(data, transformation_type) {
+  # Check if 'data' is a data frame
+  if (!is.data.frame(data)) {
+    stop("Input data must be a data frame.")
+  }
+  
+ # Use a conditional statement to perform different data transformations
+  if (transformation_type == "petal_area") {
+  # Use mutate to calculate petal area and add it as a new column
+  transformed_data <- data %>%
+    mutate(Petal_Area = Petal.Length * Petal.Width)
+  } else if (transformation_type == "sepal_area") {
+    transformed_data <- data %>%
+      mutate(Sepal_Area = Sepal.Length * Sepal.Width)
+  } else {
+    stop("Invalid transformation_type. Use 'petal_area' or 'sepal_area'.")
+  }
+  
+  return(transformed_data)
+}  
+
+print( "Below would show the function woul work based on differernt conditional argument inputs.")
 
 # Load the built-in 'iris' dataset
 data(iris)
 
 # Use the function to calculate petal area
-iris_with_petal_area <- calculate_area(iris)
+iris_with_petal_area <- calculate_area(iris,"petal_area")
+iris_with_sepal_area <- calculate_area(iris,"sepal_area")
 
 # Print the transformed data
 print(iris_with_petal_area)
+print(iris_with_sepal_area)
+
+
 ```
 
+
+Based on the original R draft in the main branch, a second argument is added to calculate the area of different parts using a conditional statement. It coule perform 2 types of data transformations with mutate function and different variables. Overall, the function, calculte_area, could provide the output of the area of petal and sepal in built-in dataset iris.
 
 ## Appendix: All code in this assignment
 
