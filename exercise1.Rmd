@@ -40,9 +40,6 @@ calculate_area <- function(data, transformation_type) {
 
 ```
 
-
-Based on the original R draft in the main branch, a second argument is added to calculate the area of different parts using a conditional statement. It coule perform 2 types of data transformations with mutate function and different variables. Overall, the function, calculte_area, could provide the output of the area of petal and sepal in built-in dataset iris.
-
 ## Appendix: All code in this assignment
 
 ```{r ref.label=knitr::all_labels(), echo=TRUE, eval=FALSE} 
