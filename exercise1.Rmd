@@ -15,8 +15,10 @@ knitr::opts_chunk$set(echo = FALSE) # actually set the global chunk options.
 ```
 
 ```{r}
+library(dplyr)
+
 # Define a function named 'calculate_petal_area' that takes a single argument 'data'
-calculate_petal_area <- function(data) {
+calculate_area <- function(data) {
   # Check if 'data' is a data frame
   if (!is.data.frame(data)) {
     stop("Input data must be a data frame.")
@@ -33,10 +35,11 @@ calculate_petal_area <- function(data) {
 data(iris)
 
 # Use the function to calculate petal area
-iris_with_petal_area <- calculate_petal_area(iris)
+iris_with_petal_area <- calculate_area(iris)
 
 # Print the transformed data
 print(iris_with_petal_area)
+
 ```
 
 
